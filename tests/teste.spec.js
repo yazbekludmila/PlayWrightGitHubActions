@@ -19,4 +19,4 @@ test('basic test', async () => {
     await page.screenshot({path: 'SignIn.png', fullPage: true})
 
     await browser.close()
-})()
+})
