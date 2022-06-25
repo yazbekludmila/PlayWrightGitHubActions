@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: '16'
       - name: Install dependencies
+        run: sudo rm -rf node_modules
         run: npm install && npx playwright install
       - name: Run your tests
         run: npm test
