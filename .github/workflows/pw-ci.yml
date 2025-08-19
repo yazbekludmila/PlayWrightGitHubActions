@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest # or macos-latest, windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v22.16.0
         with:
           node-version: '16'
       - name: Modules consistency
