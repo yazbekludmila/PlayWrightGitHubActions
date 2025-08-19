@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
   e2e-tests:
@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '16'
       - name: Modules consistency
-        run: sudo rm -rf node_modules    
+        run: sudo rm -rf node_modules
       - name: Install dependencies
         run: npm install && npx playwright install
       - name: Run your tests

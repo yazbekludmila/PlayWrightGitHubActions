@@ -1,22 +1,19 @@
-const { chromium } = require('playwright');
-const { test } = require('@playwright/test');
+// tests/teste.spec.js
+const { test, expect } = require('@playwright/test');
 
-test('basic test', async () => {
-    const browser = await chromium.launch({headless:true})
-    const context = await browser.newContext();
-    const page = await context.newPage()
+test('basic test', async ({ page }) => {
+  await page.goto('https://react-redux.realworld.io/#/login');
 
-    await page.goto('https://react-redux.realworld.io/#/login')
+  await page.fill('input[type="email"]', 'alanvoigt@yahoo.com.br');
+  await page.press('input[type="email"]', 'Tab');
+  await page.type('input[type="password"]', 'test123');
+  await page.click('form >> text=Sign in');
 
-    await page.fill('input[type = "email"]', 'alanvoigt@yahoo.com.br')
-    await page.press('input[type = "email"]', 'Tab')
-    await page.type('input[type = "password"]', 'test123')
-    await page.click("form >> 'Sign in'")
+  //const html = await page.innerHTML('.feed-toggle');
 
-    const html = await page.innerHTML('.feed-toggle')
+  // Screenshot
+  await page.screenshot({ path: 'SignIn.png', fullPage: true });
 
-    // Screenshot
-    await page.screenshot({path: 'SignIng.png', fullPage: true})
-
-    await browser.close()
-})
+  // Exemplo de verificação
+//  await expect(page.locator('.feed-toggle')).toContainText('Global Feed');
+});
