@@ -14,6 +14,6 @@ test('basic test', async ({ page }) => {
   // Screenshot
   await page.screenshot({ path: 'SignIn.png', fullPage: true });
 
-  // Exemplo de verificação sucesso 19 agosto
+  // Exemplo de verificação sucesso 19 agosto == AGORA DEU SUCESSO 
 //  await expect(page.locator('.feed-toggle')).toContainText('Global Feed');
 });
